@@ -25,4 +25,16 @@ public class AllAppPackageName {
 
         return YailList.makeList(packageNameList);
     }
+
+    public YailList getAppName() {
+        PackageManager packageManager = context.getPackageManager();
+        List<ApplicationInfo> appsInfo = packageManager.getInstalledApplications(PackageManager.GET_META_DATA);
+        List<String> appNameList = new ArrayList<>();
+
+        for (ApplicationInfo appInfo : appsInfo) {
+            appNameList.add(packageManager.getApplicationLabel(appInfo);
+        }
+
+        return YailList.makeList(appNameList);
+    }
 }
